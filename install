@@ -1,0 +1,14 @@
+#!/bin/sh
+
+
+test -n "$HOME" || exit 1
+test -d "$HOME"/.xmonad || exit 2
+
+mkdir -p "$HOME"/.xmonad/lib/
+
+echo "copying to" "$HOME"/.xmonad/lib/
+
+for d in typeclasses dummy notify-send hslibnotify; do
+  cp -R "$d"/src/* "$HOME"/.xmonad/lib/
+done
+
