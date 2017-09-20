@@ -21,5 +21,9 @@ Or manually copy the files to your ~/.xmonad/lib directory.
 
 Thats a long story... TODO
 
+## Usage
+
+TODO
+
 [install-script]: https://gitlab.com/xaverdh/xmonad-xnotify/blob/master/install
 
