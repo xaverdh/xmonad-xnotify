@@ -31,7 +31,7 @@ fromIcon :: Icon -> Notification
 fromIcon i = mempty { notIcon = Just (iconPath i) }
 
 notifySend :: MonadIO io => Notification -> io ()
-notifySend n = safeSpawn "/bin/notify-send" args
+notifySend n = safeSpawn "notify-send" args
   where
     args = useIcon (notIcon n)
       <> useSummary (notSummary n)
