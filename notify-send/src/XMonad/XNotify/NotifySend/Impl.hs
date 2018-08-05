@@ -14,11 +14,13 @@ data Notification = Notification
   , notBody :: Maybe String
   , notIcon :: Maybe String }
 
-instance Monoid Notification where
-  n1 `mappend` n2 = Notification
+instance Semigroup Notification where
+  n1 <> n2 = Notification
     { notSummary = maybe (notSummary n2) Just (notSummary n1)
     , notBody = maybe (notBody n2) Just (notBody n1)
     , notIcon = maybe (notIcon n2) Just (notIcon n1) }
+ 
+instance Monoid Notification where
   mempty = Notification Nothing Nothing Nothing
 
 fromSummary :: String -> Notification

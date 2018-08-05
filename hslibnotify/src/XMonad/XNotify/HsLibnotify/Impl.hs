@@ -22,7 +22,7 @@ instance IsNotification MNotification where
 
 newtype Tokens t = Tokens
   { tokenMap :: M.Map t N.Notification }
-  deriving (Monoid,Typeable)
+  deriving (Semigroup,Monoid,Typeable)
 
 instance (Typeable i,Ord i) => ExtensionClass (Tokens i) where
   initialValue = mempty
