@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env fish
 
 for d in $XMONAD_CONFIG_DIR $XDG_CONFIG_HOME "$HOME"/.xmonad
   if test -d $d
@@ -8,8 +8,8 @@ for d in $XMONAD_CONFIG_DIR $XDG_CONFIG_HOME "$HOME"/.xmonad
 end
 
 if test -z "$xmonad_dir"
-  test -n "$HOME" || exit 1
-  test -d "$HOME"/.xmonad || exit 2
+  test -n "$HOME" ; or exit 1
+  test -d "$HOME"/.xmonad ; or exit 2
   set xmonad_dir "$HOME"/.xmonad 
 end
 
@@ -19,7 +19,7 @@ mkdir -p "$xmonad_dir"/lib/
 echo "copying to $xmonad_dir/lib/"
 echo
 
-for d in typeclasses dummy notify-send hslibnotify; do
+for d in typeclasses dummy notify-send hslibnotify
   cp -vR "$d"/src/* "$xmonad_dir"/lib/
-done
+end
 
